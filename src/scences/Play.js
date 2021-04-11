@@ -29,9 +29,18 @@ class Play extends Phaser.Scene{
     update(){
         this.starfield.tilePositionX -= 4;
         this.p1Rocket.update();
-        this.ship01.update();               // update spaceships (x3)
+        this.ship01.update();
         this.ship02.update();
         this.ship03.update();
+        if(this.checkCollision(this.p1Rocket, this.ship03)) {
+            console.log('kaboom ship 03');
+          }
+          if (this.checkCollision(this.p1Rocket, this.ship02)) {
+            console.log('kaboom ship 02');
+          }
+          if (this.checkCollision(this.p1Rocket, this.ship01)) {
+            console.log('kaboom ship 01');
+          }
     }
     checkCollision(rocket, ship) {
         // simple AABB checking
